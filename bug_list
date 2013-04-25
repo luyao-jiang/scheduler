@@ -1,0 +1,15 @@
+BUG 1: kernel crash: data direction, rq_is_sync checks whether req is syn or not, read or sync write is regarded as sync; FIXED;
+
+BUG 2: OST cannot issue async write; change sync queue to only contain read reqs; thus all the writes can be merged; PEDNING
+
+BUG 3: system hang: do not set anticipatory time to be too long; FIXED;
+
+BUG4: can only merge at most two reqs; 
+This is not a bug; However, it seems that the bundling size has something to do with the probability of merging. Not sure why this is the case;
+
+
+BUG5: sync reqs also be kicked into bundle queue; FIXED:
+
+WARNING: __data_len _sector field in struct request are internal and cannot be accessed outside;
+
+
